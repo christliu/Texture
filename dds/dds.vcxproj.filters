@@ -24,6 +24,9 @@
     <ClCompile Include="src\dds_helper.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\directxtex_helper.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\dds_helper.h">
@@ -33,6 +36,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="include\ppm_helper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\directxtex_helper.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

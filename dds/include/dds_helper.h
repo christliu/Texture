@@ -1,6 +1,12 @@
 #pragma once
 #include "image_helper.h"
 
+#if !defined(MAKEFOURCC)
+#    define MAKEFOURCC(ch0, ch1, ch2, ch3) \
+    ( (unsigned int)(ch0)        | ((unsigned int)(ch1) << 8) | \
+      ( (unsigned int)(ch2) << 16) | ((unsigned int)(ch3) << 24) )
+#endif
+
 struct DDSPixelFormat
 {
 	Uint32 size;
@@ -61,11 +67,17 @@ struct BlockDXT1
 	void decompress(Color32 color[]) const;
 };
 
+void CompressDXT1(Color32[16], BlockDXT1*);
+
 //int CompressPPM2DDS(const char* ppmfile, const char* ddsfile);
 //int DecompressDDS2PPM(const char* ddsfile, const char* ppmfile);
-//int CompressImageData2DDS();
+int CompressImageData2DDS(const char* dst, const Uint32 width, const Uint32 height, Color32* img);
+
+int SaveBlockDXT1ToDDS(const char* dst, const Uint32 width, const Uint32 height, BlockDXT1* data);
 
 int LoadDXT1ToColor32(const char* ddsfile, Color32** img, uint16_t *W, uint16_t *H);
 
 // unit test
 void DXT1LoadTest(const char* filename, const char* dstfile);
+void copyDxt1(const char* src, const char* dst);
+void compressPPM(const char*src, const char* dst);
