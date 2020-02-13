@@ -81,3 +81,4 @@ int LoadDXT1ToColor32(const char* ddsfile, Color32** img, uint16_t *W, uint16_t 
 void DXT1LoadTest(const char* filename, const char* dstfile);
 void copyDxt1(const char* src, const char* dst);
 void compressPPM(const char*src, const char* dst);
+void computeError(const char* dds1, const char* dds2);
